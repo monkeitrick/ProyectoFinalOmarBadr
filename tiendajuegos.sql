@@ -460,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `descripcion`, `direccion`, `codigoPostal`, `municipio`, `provincia`, `pais`, `telefono`, `email`, `password`, `admin`, `id_imagen`) VALUES
-(1, 'Edgar', 'Martinez', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'edgaradm@edgar.com', 'edgar', 1, 1),
+(1, 'Omar', 'Eiyana', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'omaradm@edgar.com', 'omar', 1, 1),
 (2, 'Badr', 'Jebari', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'badradm@badr.com', 'badr', 1, 1),
 (3, 'Admin', 'Admin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'edgar@edgar.com', 'admin', 1, 1),
 (6, 'Prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 1, 1);
