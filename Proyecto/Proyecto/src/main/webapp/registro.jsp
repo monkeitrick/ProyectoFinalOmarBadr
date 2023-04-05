@@ -19,51 +19,21 @@
 
                   <div class="form-outline">
                   	<label class="form-label" for="nombre">Nombre *</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" required />
-                    
+                    <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" required />       
                   </div>
 
                 </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="ciudad">Ciudad *</label>
-                    <input type="text" id="ciudad" name="ciudad" class="form-control form-control-lg" required/>
-                  </div>
-
-                </div>
-              </div>
-              
-              <div class="row">
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
                   	<label class="form-label" for="apellidos">Apellidos *</label>
                     <input type="text" id="apellidos" name="apellidos" class="form-control form-control-lg" required/>
-                    
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="pais">País *</label>
-                    <input type="text" id="pais" name="pais" class="form-control form-control-lg" required/>
                   </div>
 
                 </div>
               </div>
               
               <div class="row">
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="descripcion">Descripción</label>
-                    <input type="text" id="descripcion" name="descripcion" class="form-control form-control-lg" required/>
-                    
-                  </div>
-
-                </div>
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
@@ -72,69 +42,13 @@
                   </div>
 
                 </div>
-              </div>
-              
-              <div class="row">
                 <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="direccion">Dirección *</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control form-control-lg" required/>
-                    
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
+					<div class="form-outline">
                   	<label class="form-label" for="password">Contraseña *</label>
                     <input type="text" id="password" name="password" class="form-control form-control-lg" required/>
-                  </div>
-
+                  	</div>
                 </div>
               </div>
-              
-              <div class="row">
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="cp">Codigo Postal *</label>
-                    <input type="number" id="cp" name="cp" class="form-control form-control-lg" required/>
-                    
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="telefono">Telefono *</label>
-                    <input type="number" id="telefono" name="telefono" class="form-control form-control-lg" required/>
-                  </div>
-
-                </div>
-              </div>
-              
-              <div class="row">
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="municipio">Municipio *</label>
-                    <input type="text" id="municipio" name="municipio" class="form-control form-control-lg" required/>
-                    
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                  	<label class="form-label" for="imagen">Imagen *</label>
-                    <input type="text" id="imagen" name="imagen" class="form-control form-control-lg" required/>
-                  </div>
-
-                </div>
-              </div>
-
-              
 
               <div class="mt-4 pt-2">
               	<button class="btn btn-danger btn-lg" type="submit" name="registrarse">Registrarse</button>

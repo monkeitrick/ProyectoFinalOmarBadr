@@ -35,38 +35,22 @@ public class ClienteDAO {
   public Usuario buscaCliente(String nombre, String password) {
     nombre = capitalize(nombre);
     String sql =
-      "SELECT * FROM usuario, imagen WHERE usuario.nombre = '" +
-      nombre +
-      "' AND usuario.password = '" +
-      password +
-      "' " +
-      "AND usuario.id_imagen = imagen.idImagen";
+      "SELECT * FROM usuario, imagen WHERE usuario.nombre = '" + nombre + "' AND usuario.password = '" + password + "' ";
     Usuario user = null;
     try {
       con = ds.getConnection();
       Statement st = con.createStatement();
       ResultSet rs = st.executeQuery(sql);
       if (rs.next()) {
-    	  
-        // img user
-        Imagen img = new Imagen(rs.getInt("idImagen"), rs.getString("ruta"));
         
         // Usuario
         user = new Usuario();
         user.setIdUser(rs.getInt("idUsuario"));
         user.setNombre(capitalize(rs.getString("nombre")));
         user.setApellidos(rs.getString("apellidos"));
-        user.setDesc(rs.getString("descripcion"));
-        user.setDir(rs.getString("direccion"));
-        user.setCp(rs.getString("codigoPostal"));
-        user.setMunicipio(rs.getString("municipio"));
-        user.setProvincia(rs.getString("provincia"));
-        user.setPais(rs.getString("pais"));
-        user.setTlf(rs.getString("telefono"));
         user.setEmail(rs.getString("email"));
         user.setPassw(rs.getString("password"));
         user.setAdmin(rs.getBoolean("admin"));
-        user.setImg(img);
       }
       rs.close();
       st.close();
@@ -80,7 +64,7 @@ public class ClienteDAO {
   // Metodo que devuelve un cliente pasandole el nombre y la contraseña
   public Usuario buscaClientePorID(int idUsuario) {
     String sql =
-      "SELECT * FROM usuario, imagen WHERE usuario.idUsuario = ? AND usuario.id_imagen = imagen.idImagen";
+      "SELECT * FROM usuario, imagen WHERE usuario.idUsuario = ? ";
     Usuario user = null;
     try {
       con = ds.getConnection();
@@ -88,26 +72,15 @@ public class ClienteDAO {
       ps.setInt(1, idUsuario);
       ResultSet rs = ps.executeQuery();
       if (rs.next()) {
-    	  
-        //  img user
-        Imagen img = new Imagen(rs.getInt("idImagen"), rs.getString("ruta"));
         
         // Usuario 
         user = new Usuario();
         user.setIdUser(rs.getInt("idUsuario"));
         user.setNombre(capitalize(rs.getString("nombre")));
         user.setApellidos(rs.getString("apellidos"));
-        user.setDesc(rs.getString("descripcion"));
-        user.setDir(rs.getString("direccion"));
-        user.setCp(rs.getString("codigoPostal"));
-        user.setMunicipio(rs.getString("municipio"));
-        user.setProvincia(rs.getString("provincia"));
-        user.setPais(rs.getString("pais"));
-        user.setTlf(rs.getString("telefono"));
         user.setEmail(rs.getString("email"));
         user.setPassw(rs.getString("password"));
         user.setAdmin(rs.getBoolean("admin"));
-        user.setImg(img);
       }
       rs.close();
       ps.close();
@@ -157,31 +130,19 @@ public class ClienteDAO {
   public boolean guardarCliente(Usuario u) {
     boolean guardado = false;
     String sql =
-      "INSERT INTO usuario(nombre, apellidos, descripcion, direccion, codigoPostal, municipio, provincia, pais, telefono, email, password, admin, id_imagen) " +
-      "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO usuario(nombre, apellidos, email, password, admin) " +
+      "VALUES(?, ?, ?, ?, ?)";
     try {
       Connection con = ds.getConnection();
       PreparedStatement st = con.prepareStatement(sql);
       st.setString(1, capitalize(u.getNombre()));
       st.setString(2, u.getApellidos());
-      st.setString(3, u.getDesc());
-      st.setString(4, u.getDir());
-      st.setString(5, u.getCp());
-      st.setString(6, u.getMunicipio());
-      st.setString(7, u.getProvincia());
-      st.setString(8, u.getPais());
-      st.setString(9, u.getTlf());
-      st.setString(10, u.getEmail());
-      st.setString(11, u.getPassw());
+      st.setString(3, u.getEmail());
+      st.setString(4, u.getPassw());
       if (u.getAdmin() == false) {
-        st.setInt(12, 0);
+        st.setInt(5, 0);
       } else {
-        st.setInt(12, 1);
-      }
-      if (u.getImg() == null) {
-        st.setInt(13, 1);
-      } else {
-        st.setInt(13, u.getImg().getIdImagen());
+        st.setInt(5, 1);
       }
       st.executeUpdate();
       guardado = true;
@@ -199,7 +160,7 @@ public class ClienteDAO {
   public ArrayList<Usuario> listarUsuarios() {
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     String sql =
-      "select usuario.idUsuario, usuario.nombre, usuario.apellidos, usuario.admin, imagen.ruta from usuario, imagen where imagen.idImagen=usuario.id_imagen;";
+      "select usuario.idUsuario, usuario.nombre, usuario.apellidos, usuario.admin from usuario;";
     try {
       con = ds.getConnection();
       Statement st = con.createStatement();
@@ -209,14 +170,11 @@ public class ClienteDAO {
         String nombre = capitalize(rs.getString("usuario.nombre"));
         String apellidos = capitalize(rs.getString("usuario.apellidos"));
         int admin = rs.getInt("usuario.admin");
-        String ruta = rs.getString("imagen.ruta");
-        Imagen img = new Imagen(0, ruta);
         Usuario u = new Usuario();
         u.setAdminInt(admin);
         u.setNombre(nombre);
         u.setIdUser(idUsuario);
         u.setApellidos(apellidos);
-        u.setImg(img);
         usuarios.add(u);
       }
 
