@@ -2,8 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%! int i; %>
-<!-- Aï¿½adimos la cabecera -->
-<c:import url="cabecera.jsp"/> 
+<!-- Añadimos la cabecera -->
+<c:import url="cabecera.jsp"/>
+
 <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">
      <div class="col-12 col-lg-9 col-xl-7">
@@ -17,7 +18,7 @@
 	
 	  <!-- Password input -->
 	  <div class="form-outline mb-4">
-	  	<label class="form-label" for="password">Password</label>
+	  	<label class="form-label" for="password">Contraseña</label>
 	    <input type="password" id="password" class="form-control" name="password"/>
 	  </div>
 		<c:if test="${mensaje != null}">
@@ -26,8 +27,8 @@
 	
 	   <div class="col">
 	     <!-- Simple link -->
-		<a href="recuperarPass.jsp">ï¿½Olvidaste tu contraseï¿½a?</a>
-		<a href="registro.jsp">ï¿½No tienes cuenta? Registrate</a>
+		<a href="recuperarPass.jsp">¿Olvidaste tu contraseña?</a>
+		<a href="registro.jsp">¿No tienes cuenta? Registrate</a>
 	   </div>
 	  
 	  <!-- Submit button -->
@@ -56,5 +57,6 @@
  </div>
 </div>
 <%session.invalidate();%>
-<!-- Aï¿½adimos el footer -->
+
+<!-- Añadimos el footer -->
 <c:import url="footer.jsp"/>
