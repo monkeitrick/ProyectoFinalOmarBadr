@@ -20,8 +20,13 @@ public class ClienteDAO {
   private DataSource ds;
   private Connection con;
 
-  public ClienteDAO() throws ServletException{
-	bdConex = new BDConex();
+  public ClienteDAO(){
+	try {
+		bdConex = new BDConex();
+	} catch (ServletException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     ds = bdConex.getDs();
   }
 
@@ -31,11 +36,10 @@ public class ClienteDAO {
     return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
   }
 
-  // Metodo que devuelve un cliente pasandole el nombre y la contraseña
-  public Usuario buscaCliente(String nombre, String password) {
-    nombre = capitalize(nombre);
+  // Metodo que devuelve un cliente pasandole el email y la contraseña
+  public Usuario buscaCliente(String email, String password) {
     String sql =
-      "SELECT * FROM usuario, imagen WHERE usuario.nombre = '" + nombre + "' AND usuario.password = '" + password + "' ";
+      "SELECT * FROM usuario WHERE email = '" + email + "' AND password = '" + password + "' ";
     Usuario user = null;
     try {
       con = ds.getConnection();
@@ -91,14 +95,14 @@ public class ClienteDAO {
     return user;
   }
 
-  // Metodo para cambiar contraseña pasandole la nueva contraseña y el nombre del usuario
-  public void cambiarPassw(String username, String passw) {
-    String sql = "UPDATE usuario SET password = ? WHERE nombre = ?";
+  // Metodo para cambiar contraseña pasandole la nueva contraseña y el email del usuario
+  public void cambiarPassw(String email, String passw) {
+    String sql = "UPDATE usuario SET password = ? WHERE email = ?";
     try {
       con = ds.getConnection();
       PreparedStatement ps = con.prepareStatement(sql);
       ps.setString(1, passw);
-      ps.setString(2, capitalize(username));
+      ps.setString(2, email);
       ps.executeUpdate();
       ps.close();
       con.close();
@@ -107,11 +111,10 @@ public class ClienteDAO {
     }
   }
 
-  // Metodo que devuelve si existe un cliente pasandole el nombre 
-  public boolean buscaCliente(String nombre) {
-    nombre = capitalize(nombre);
+  // Metodo que devuelve si existe un cliente pasandole el email 
+  public boolean buscaCliente(String email) {
     boolean existe = false;
-    String sql = "SELECT * FROM usuario WHERE nombre = '" + nombre + "'";
+    String sql = "SELECT * FROM usuario WHERE email = '" + email + "'";
     try {
       con = ds.getConnection();
       Statement st = con.createStatement();
