@@ -33,7 +33,7 @@ public class ServletRegistro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario u = new Usuario(request.getParameter("nombre"), request.getParameter("apellidos"), request.getParameter("email"), request.getParameter("password"), 0);
+		Usuario u = new Usuario(request.getParameter("nombre"), request.getParameter("apellidos"), request.getParameter("email"), request.getParameter("password"), false);
 		boolean todoBn = cdao.guardarCliente(u);
 		if (todoBn == true) {
 			request.getSession().setAttribute("mensaje", "Ingresa la cadena de verificación que te ha llegado en el email.");
