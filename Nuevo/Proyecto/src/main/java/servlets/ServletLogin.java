@@ -11,7 +11,7 @@ import beans.Usuario;
 import dao.ClienteDAO;
 
 /**
- * Servlet implementation class ProcesaApuesta
+ * Servlet implementation class ServletLogin
  */
 public class ServletLogin extends HttpServlet {
 	private ClienteDAO cdao = new ClienteDAO();
@@ -49,19 +49,5 @@ public class ServletLogin extends HttpServlet {
 					response.sendRedirect("listadoProductos.jsp"); 
 			} 
 		}
-		/*if (request.getParameter("validar") != null) {
-			String cadena = request.getParameter("cadena");
-			String email = request.getParameter("email");
-			boolean todoBn = cdao.validarCadena(email, cadena);
-			if (todoBn == true) {
-				request.getSession().setAttribute("strValidar", null);
-				request.getSession().setAttribute("mensaje", "Usuario validado.");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
-			}else {
-				request.getSession().setAttribute("strValidar", null);
-				request.getSession().setAttribute("mensaje", "No se ha podido validar el usuario. Intentelo más tarde.");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
-			}
-		}*/
 	}
 }
