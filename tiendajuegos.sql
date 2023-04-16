@@ -440,30 +440,20 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apellidos` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `direccion` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `codigoPostal` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `municipio` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `provincia` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pais` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefono` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `admin` tinyint(1) NOT NULL,
-  `id_imagen` int(11) DEFAULT '1',
-  PRIMARY KEY (`idUsuario`),
-  KEY `FK_Us_Img` (`id_imagen`)
+  PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `descripcion`, `direccion`, `codigoPostal`, `municipio`, `provincia`, `pais`, `telefono`, `email`, `password`, `admin`, `id_imagen`) VALUES
-(1, 'Omar', 'Eiyana', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'omaradm@omar.com', 'omar', 1, 1),
-(2, 'Badr', 'Jebari', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'badradm@badr.com', 'badr', 1, 1),
-(3, 'Admin', 'Admin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse orci purus, iaculis nec mi at, tempus gravida quam. Cras ultrices varius risus eu gravida. Cras varius augue ut velit volutpat.', 'C\\ Gonzalo de Berceo Nº2', '01010', 'Vitoria', 'Alava', 'España', '600000000', 'admin@admin.com', 'admin', 1, 1),
-(6, 'Prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 'prueba', 1, 1);
+INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `email`, `password`, `admin`) VALUES
+(1, 'Omar', 'Eiyana', 'omaradm@omar.com', 'omar', 1),
+(2, 'Badr', 'Jebari', 'badradm@badr.com', 'badr', 1),
+(3, 'Admin', 'Admin', 'admin@admin.com', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -583,12 +573,6 @@ ALTER TABLE `lineapedido`
 ALTER TABLE `personaje`
   ADD CONSTRAINT `FK_Img_Per` FOREIGN KEY (`id_imagen`) REFERENCES `imagen` (`idImagen`),
   ADD CONSTRAINT `FK_Per_Vidjue` FOREIGN KEY (`id_juego`) REFERENCES `videojuegos` (`idJuego`);
-
---
--- Constraints for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `FK_Us_Img` FOREIGN KEY (`id_imagen`) REFERENCES `imagen` (`idImagen`);
 
 --
 -- Constraints for table `videojuegos`
