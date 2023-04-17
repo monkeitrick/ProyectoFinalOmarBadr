@@ -31,4 +31,14 @@
 		<servlet-name>ServletRegistro</servlet-name>
 		<url-pattern>/ServletRegistro</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet compañias -->
+	<servlet>
+		<servlet-name>ServletCompanias</servlet-name>
+		<servlet-class>servlets.ServletCompanias</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletCompanias</servlet-name>
+		<url-pattern>/ServletCompanias</url-pattern>
+	</servlet-mapping>
 </web-app>
