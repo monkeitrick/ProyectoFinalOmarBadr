@@ -14,7 +14,7 @@
 	
 	<!-- Mensaje de error por si no introducen ningun valor al aniadir -->
 	<c:if test="${mensajeError != null}">
-	  		<p style="color: green"><c:out value = "${mensajeError}"/></p> 
+	  		<p class="text-success"><c:out value = "${mensajeError}"/></p> 
 	 </c:if>
 	  
 	<form action="ServletAgregarLineaPedidos" method="post">

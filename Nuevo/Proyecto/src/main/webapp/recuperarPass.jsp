@@ -35,7 +35,7 @@
                 </div>
               </div>
                <c:if test="${mensaje != null}">
-					<label class="form-label" style="color: green">${mensaje}</label>
+					<label class="form-label text-success">${mensaje}</label>
 				</c:if>
 
               <div class="mt-4 pt-2">

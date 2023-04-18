@@ -20,7 +20,7 @@
       	<c:choose>
        		<c:when test="${usuario != null}">
 	       		<li class="nav-item">
-	          		<a class="nav-link active" aria-current="page" href="ServletPerfilUsuario">${usuario.nombre}</a>
+	          		<a class="nav-link active" aria-current="page" href="ServletPerfilUsuario?idUser=${usuario.idUser}">${usuario.nombre}</a>
 	        	</li>
 	        	<c:if test="${!esAdmin.equals('si')}">
 		        	<li class="nav-item">

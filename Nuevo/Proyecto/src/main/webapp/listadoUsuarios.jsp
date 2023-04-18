@@ -24,7 +24,7 @@
 			<tr>
 				<td><c:out value="${usuario.email}"/> </td>
 				<td><c:out value="${usuario.nombre}"/> <c:out value="${usuario.apellidos}"/> </td>
-				<td><a class="btn btn-danger" href="ServletUsuarios?BorrarUsuario=${usuario.id}">Borrar</a></td>
+				<td><a class="btn btn-danger" href="ServletUsuarios?BorrarUsuario=${usuario.idUser}">Borrar</a></td>
 			</tr>
 		</c:forEach> 
 	</table>

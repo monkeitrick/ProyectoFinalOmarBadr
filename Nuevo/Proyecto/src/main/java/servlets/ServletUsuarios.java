@@ -45,7 +45,8 @@ public class ServletUsuarios extends HttpServlet {
 			for(Usuario usuario : lstTodosUsuarios){
                 if(usuario.getAdmin())
                     lstAdmins.add(usuario);
-                lstUsuarios.add(usuario);
+                else
+                	lstUsuarios.add(usuario);
             }
             request.getSession().setAttribute("lstUsuarios", lstUsuarios);
             request.getSession().setAttribute("lstAdmins", lstAdmins);

@@ -6,9 +6,9 @@
 
 <!-- Listar datos del usuario -->
 <h2>
-    <b>${datosUsuario.nombre }, ${datosUsuario.apellidos } 👋</b>
+    <b>${datosUsuario.nombre }, ${datosUsuario.apellidos }</b>
     <c:if test="${datosUsuario.admin }">
-            <span>(Es admin)</span>
+            <small class="text-success">(Es admin)</small>
     </c:if>
 </h2>
 
