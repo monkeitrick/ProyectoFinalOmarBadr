@@ -20,7 +20,7 @@
       	<c:choose>
        		<c:when test="${usuario != null}">
 	       		<li class="nav-item">
-	          		<a class="nav-link active" aria-current="page" href="perfil.jsp">${usuario.nombre}</a>
+	          		<a class="nav-link active" aria-current="page" href="ServletPerfilUsuario">${usuario.nombre}</a>
 	        	</li>
 	        	<c:if test="${!esAdmin.equals('si')}">
 		        	<li class="nav-item">
@@ -46,7 +46,7 @@
 	            Administrar
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="listadoProveedores.jsp">Proveedores</a></li>
+	            <li><a class="dropdown-item" href="listadoCompanias.jsp">Compañia</a></li>
 	            <li><a class="dropdown-item" href="listadoUsuarios.jsp">Usuarios</a></li>
 	            <li><hr class="dropdown-divider"></li>
 	            <li><a class="dropdown-item" href="listadoProductosAdmin.jsp">Productos</a></li>

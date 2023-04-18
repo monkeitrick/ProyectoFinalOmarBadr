@@ -131,6 +131,8 @@ public class ClienteDAO {
 
   //Metodo para introducir un nuevo usuario en la base de datos
   public boolean guardarCliente(Usuario u) {
+	  if(buscaCliente(u.getEmail()))
+			return false;
     boolean guardado = false;
     String sql =
       "INSERT INTO usuario(nombre, apellidos, email, password, admin) " +
@@ -192,6 +194,22 @@ public class ClienteDAO {
     }
     return usuarios;
   }
+  
+  //Metodo que elimina un usuario pasado su id
+	public boolean borrarUsuario(int id){
+		try{    
+			con = ds.getConnection();
+	       		PreparedStatement ps = con.prepareStatement("DELETE FROM usuarios WHERE id=?");
+	       		ps.setInt(1, id); 
+	       		ps.executeUpdate();
+	       		ps.close();
+	       		con.close();
+	       		return true;
+	   	} catch (SQLException ex) {
+	       		System.err.println("Error en metodo borrarProducto: " + ex);
+	       		return false;
+	   	}
+	}
 
   // Metodo que devuelve un ArrayList con todas las compras de un usuario pasandole un idUsuario
   public ArrayList<Compra> obtenerComprasUsuarioPorId(int idUser) {
