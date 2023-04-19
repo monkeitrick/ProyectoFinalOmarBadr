@@ -22,7 +22,7 @@
 		   	</tr>
 			<c:forEach items="${lstCompanias}" var="compania">
 				<tr>
-					<td><img src="..${compania.getImg().getRuta()}" alt="Imagen Compania" width="250"></td>
+					<td><img src="${compania.getImg().getRuta()}" alt="Imagen Compania" width="250"></td>
 					<td><c:out value='${compania.nombre}'/></td>
 					<td><a href="${compania.enlaceOficial}" target="_blank">Visitar</a></td>
 					<td><button type="submit" class="btn btn-danger" name="editar" value="${compania.id}">Editar</button></td>

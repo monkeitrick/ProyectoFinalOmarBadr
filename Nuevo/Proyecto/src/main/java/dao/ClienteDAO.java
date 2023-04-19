@@ -165,16 +165,17 @@ public class ClienteDAO {
   public ArrayList<Usuario> listarUsuarios() {
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     String sql =
-      "select usuario.idUsuario, usuario.nombre, usuario.apellidos, usuario.admin from usuario;";
+      "select idUsuario, nombre, apellidos, email, admin from usuario;";
     try {
       con = ds.getConnection();
       Statement st = con.createStatement();
       ResultSet rs = st.executeQuery(sql);
       while (rs.next()) {
-        int idUsuario = rs.getInt("usuario.idUsuario");
-        String nombre = capitalize(rs.getString("usuario.nombre"));
-        String apellidos = capitalize(rs.getString("usuario.apellidos"));
-        int admin = rs.getInt("usuario.admin");
+        int idUsuario = rs.getInt("idUsuario");
+        String nombre = capitalize(rs.getString("nombre"));
+        String apellidos = capitalize(rs.getString("apellidos"));
+        String email = rs.getString("email");
+        int admin = rs.getInt("admin");
         Usuario u = new Usuario();
         if(admin == 1)
         	u.setAdmin(true);
@@ -183,6 +184,7 @@ public class ClienteDAO {
         u.setNombre(nombre);
         u.setIdUser(idUsuario);
         u.setApellidos(apellidos);
+        u.setEmail(email);
         usuarios.add(u);
       }
 
