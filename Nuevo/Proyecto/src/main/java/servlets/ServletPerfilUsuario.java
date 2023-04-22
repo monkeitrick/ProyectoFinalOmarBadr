@@ -36,7 +36,7 @@ public class ServletPerfilUsuario extends HttpServlet {
             ArrayList<Compra> comprasUsuario = bdCliente.obtenerComprasUsuarioPorId(idUser);
             request.getSession().setAttribute("comprasUsuario", comprasUsuario);
             request.getSession().setAttribute("datosUsuario", user);
-            request.getRequestDispatcher("perfil.jsp").forward(request, response);
+            request.getRequestDispatcher("perfilUsuario.jsp").forward(request, response);
         }
 	}
 
@@ -44,7 +44,15 @@ public class ServletPerfilUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String password = request.getParameter("pass1");
+		String email = request.getParameter("email");
+		if(password != null && email != null) {
+			bdCliente.cambiarPassw(email, password);
+			request.getSession().setAttribute("mensaje", "Se ha cambiado correctamente la contraseña.");
+		}
+		else
+			request.getSession().setAttribute("mensaje", "Ha habiendo un error, vuele a intentarlo.");
+		request.getRequestDispatcher("perfilUsuario.jsp").forward(request, response);
 	}
 
 }
