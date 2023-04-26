@@ -201,7 +201,7 @@ public class ClienteDAO {
 	public boolean borrarUsuario(int id){
 		try{    
 			con = ds.getConnection();
-	       		PreparedStatement ps = con.prepareStatement("DELETE FROM usuarios WHERE id=?");
+	       		PreparedStatement ps = con.prepareStatement("DELETE FROM usuario WHERE idUsuario=?");
 	       		ps.setInt(1, id); 
 	       		ps.executeUpdate();
 	       		ps.close();

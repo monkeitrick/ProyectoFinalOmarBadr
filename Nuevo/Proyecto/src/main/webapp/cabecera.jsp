@@ -61,3 +61,8 @@
     </div>
   </div>
 </nav>
+
+<!-- Centrar contenido horizontal y verticalmente -->
+<div class="container py-5 h-100">
+	<div class="row justify-content-center align-items-center h-100">
+		<div class="col-12">

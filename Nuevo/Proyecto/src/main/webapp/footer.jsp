@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-
+<!-- Cerrar div para centrar contenido horizontal y verticalmente -->
+		</div>
+	</div>
+</div> 
 	<footer class="bg-dark text-center text-white w-100 ">
 	  <!-- Grid container -->
 	  <div class="container pt-4 pb-0">

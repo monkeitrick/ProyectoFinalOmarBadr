@@ -49,6 +49,40 @@ public class CompaniaDAO {
     }
     return compania;
   }
+  
+  // Metodo para modificar una compañia
+  public void modificarCompania(String idCompania, String idImagen, String ruta, String nombre, String enlaceOficial) {
+	  modificarImagenCompania(idImagen, ruta);
+      String sql = "UPDATE compania SET nombre = ?, enlaceOficial = ? WHERE idCompania = ?";
+      try {
+          con = ds.getConnection();
+          PreparedStatement ps = con.prepareStatement(sql);
+          ps.setString(1, nombre);
+          ps.setString(2, enlaceOficial);
+          ps.setString(3, idCompania);
+          ps.executeUpdate();
+          ps.close();
+          con.close();
+      } catch (SQLException e) {
+          e.printStackTrace();
+      }
+  }
+  
+//Metodo para modificar la imagen de una compañia
+ public void modificarImagenCompania(String idImagen, String ruta) {
+     String sql = "UPDATE imagen SET ruta = ? WHERE idImagen = ?";
+     try {
+         con = ds.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, ruta);
+         ps.setString(2, idImagen);
+         ps.executeUpdate();
+         ps.close();
+         con.close();
+     } catch (SQLException e) {
+         e.printStackTrace();
+     }
+ }
 
   // Metdod que devuelve un listad e todas las companias
   public ArrayList<Compania> listarCompanias() {

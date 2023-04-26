@@ -37,7 +37,7 @@ public class ServletLogin extends HttpServlet {
 			String pass = request.getParameter("password");
 			Usuario user = cdao.buscaCliente(email, pass);
 			if (user == null) {
-				request.getSession().setAttribute("mensaje", "El usuario introducido no existe. Rellene los campos nuevamente.");
+				request.getSession().setAttribute("mensaje", "El email o contraseña introducido incorrecto. Rellene los campos nuevamente.");
 				response.sendRedirect("login.jsp");  
 			}else {
 				request.getSession().setAttribute("usuario", user); 
