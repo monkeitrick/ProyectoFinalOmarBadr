@@ -57,7 +57,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
                             <label class="form-label" for="pass2">Repite contraseña *</label>
-                            <input type="password" id="pass2" name="contrasena" class="form-control form-control-lg" required/>
+                            <input type="password" id="pass2" name="pass2" class="form-control form-control-lg" required/>
                         </div>
                     </div>
                 </div>
@@ -102,5 +102,5 @@
 <!-- Aniadimos el footer -->
 <c:import url="footer.jsp"/>
 
-<!-- Comprobar datos de Formulario para cambiar contraseÃ±a-->
+<!-- Comprobar datos de Formulario para cambiar contraseña-->
 <script src="./app.js"></script>

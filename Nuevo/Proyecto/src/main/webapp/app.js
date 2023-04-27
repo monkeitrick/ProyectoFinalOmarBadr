@@ -30,8 +30,8 @@ function comprobar(){
             }
             break;
         case 'pass2':
-            let pass = document.getElementById('password').value;
-            if (pass != value){
+            let pass1 = document.getElementById('pass1').value;
+            if (pass1 != value){
                 alert("La contraseña no coincide");
                 document.getElementById(id).value = "";
             }

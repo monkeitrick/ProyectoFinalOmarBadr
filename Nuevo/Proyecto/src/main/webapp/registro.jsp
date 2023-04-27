@@ -42,17 +42,31 @@
             		</div>
             		<div class="col-md-6 mb-4">
 						<div class="form-outline">
-              				<label class="form-label" for="password">Contraseña *</label>
-                			<input type="password" id="password" name="password" class="form-control form-control-lg" required/>
+              				<label class="form-label" for="pass1">Contraseña *</label>
+                			<input type="password" id="pass1" name="pass1" class="form-control form-control-lg" required/>
               			</div>
             		</div>
           		</div>
+          		
+          		<div class="row">
+            		<div class="col-md-6 mb-4">
 
-         	 	<div class="mt-4 pt-2">
-          			<button class="btn btn-danger btn-lg" type="submit" name="registrarse">Registrarse</button>
-          		</div>
+              			<div class="form-outline">
+              				<label class="form-label" for="pass2">Repetir contraseña *</label>
+                			<input type="password" id="pass2" name="pass2" class="form-control form-control-lg" required/>
+              			</div>
 
-        </form>
+            		</div>
+            		<div class="col-md-6 mb-4">
+						<div class="form-outline">
+              				<div class="mt-4 pt-2">
+          					<button class="btn btn-danger btn-lg" type="submit" name="registrarse">Registrarse</button>
+          				</div>
+              			</div>
+            		</div>
+        		</div>
+
+        	</form>
         	<c:if test="${mensajeError != null}">
 				<script type='text/javascript'>alert("${mensajeError}");</script>
 			</c:if>
@@ -64,9 +78,5 @@
 <!-- Añadimos el footer -->
 <c:import url="footer.jsp"/>
 
-
-
-
-
-
-
+<!-- Comprobar datos de Formulario para registrarse -->
+<script src="./app.js"></script>
