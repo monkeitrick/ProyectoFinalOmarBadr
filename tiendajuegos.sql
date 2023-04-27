@@ -453,15 +453,15 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `email`, `password`, `admin`) VALUES
 (1, 'Omar', 'Eiyana', 'omaradm@omar.com', 'omar', 1),
 (2, 'Badr', 'Jebari', 'badradm@badr.com', 'badr', 1),
-(3, 'Admin', 'Admin', 'admin@admin.com', 'admin', 1)
-(4, 'Juan', 'López', 'juan@gmail.com', 'juan', 0),
-(5, 'Luis', 'Henrique', 'luis@gmail.com', 'luis', 0),
+(3, 'Admin', 'Admin', 'admin@admin.com', 'admin', 1),
 (6, 'Pedro', 'García', 'pedro@gmail.com', 'pedro', 0),
 (7, 'Jesus', 'Gabarre', 'jesus@gmail.com', 'jesus', 0),
 (8, 'Yeray', 'Oro', 'yeray@gmail.com', 'yeray', 0),
 (9, 'Iker', 'Murgia', 'iker@gmail.com', 'iker', 0),
 (10, 'Teo', 'Stefanescu', 'teo@gmail.com', 'teo', 0),
-(10, 'Ander', 'Arocena', 'ander@gmail.com', 'ander', 0);
+(11, 'Ander', 'Arocena', 'ander@gmail.com', 'ander', 0),
+(12, 'Juan', 'López', 'juan@gmail.com', 'juan', 0),
+(13, 'Luis', 'Henrique', 'luis@gmail.com', 'luis', 0);
 
 -- --------------------------------------------------------
 
