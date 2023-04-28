@@ -18,10 +18,12 @@ public class CompaniaDAO {
   private BDConex bdConex;
   private DataSource ds;
   private Connection con;
+  private ImagenDAO imgDAO;
 
   public CompaniaDAO() throws ServletException {
     bdConex = new BDConex();
     ds = bdConex.getDs();
+    imgDAO = new ImagenDAO();
   }
 
   private static final String capitalize(String str) {
@@ -40,7 +42,7 @@ public class CompaniaDAO {
       ps.setInt(1, id);
       ResultSet rs = ps.executeQuery();
       if (rs.next()) compania =
-        new Compania(id, rs.getString("nombre"), rs.getString("enlaceOficial"));
+        new Compania(id, rs.getString("nombre"), rs.getString("enlaceOficial"), imgDAO.obtenerImagenPorId(Integer.parseInt(rs.getString("idImagen"))));
       rs.close();
       ps.close();
       con.close();
@@ -88,7 +90,7 @@ public class CompaniaDAO {
   public ArrayList<Compania> listarCompanias() {
     ArrayList<Compania> companias = new ArrayList<Compania>();
     String sql =
-      "select compania.idCompania, compania.nombre, compania.enlaceOficial, imagen.ruta from compania, imagen where compania.idImagen= imagen.idImagen";
+      "select idCompania, nombre, enlaceOficial, imagen.idImagen, ruta from compania, imagen where compania.idImagen= imagen.idImagen";
     try {
       con = ds.getConnection();
       Statement st = con.createStatement();
@@ -96,11 +98,10 @@ public class CompaniaDAO {
       while (rs.next()) {
         int idCompania = rs.getInt("compania.idCompania");
         String nombre = capitalize(rs.getString("compania.nombre"));
-        String enlaceOficial = capitalize(
-          rs.getString("compania.enlaceOficial")
-        );
-        String ruta = rs.getString("imagen.ruta");
-        Imagen img = new Imagen(0, ruta);
+        String enlaceOficial = capitalize(rs.getString("compania.enlaceOficial"));
+        int idImagen = rs.getInt("imagen.idImagen");
+        String ruta = rs.getString("ruta");
+        Imagen img = new Imagen(idImagen, ruta);
         Compania c = new Compania();
         c.setEnlaceOficial(enlaceOficial);
         c.setId(idCompania);

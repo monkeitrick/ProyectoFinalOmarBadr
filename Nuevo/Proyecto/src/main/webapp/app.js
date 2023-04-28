@@ -32,7 +32,7 @@ function comprobar(){
         case 'pass2':
             let pass1 = document.getElementById('pass1').value;
             if (pass1 != value){
-                alert("La contraseña no coincide");
+                alert("Las contraseñas no coincide");
                 document.getElementById(id).value = "";
             }
             break;

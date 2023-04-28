@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Compania;
+import beans.Imagen;
 import dao.CompaniaDAO;
 import dao.ImagenDAO;
 
@@ -44,15 +45,17 @@ public class ServletCompanias extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// En caso de querer editar una compania, crea un objeto de esta para modificarlo en modificarCompania
 	    if(request.getParameter("editar") != null) {
-			request.getSession().setAttribute("compania", bdCompania.obtenerCompaniaPorId(Integer.parseInt(request.getParameter("editar"))));
+	    	Compania compania = bdCompania.obtenerCompaniaPorId(Integer.parseInt(request.getParameter("editar")));
+	    	Imagen imagen = compania.getImg();
+			request.getSession().setAttribute("compania", compania);
+			request.getSession().setAttribute("imagen", imagen);
 	        request.getRequestDispatcher("modificarCompania.jsp").forward(request, response);
 		} 
 
 	    // Si desea confirmar la modificacion, la cambia en la BBDD
 	    if(request.getParameter("modificar") != null) {
-	        bdCompania.modificarCompania(request.getParameter("idCompania"), request.getParameter("idImagen"), request.getParameter("ruta"), request.getParameter("nombre"), request.getParameter("enlaceOficial"));
+	        bdCompania.modificarCompania(request.getParameter("idCompania"), request.getParameter("idImagen"), request.getParameter("ruta"), request.getParameter("nombre"), request.getParameter("enlace"));
 	    }
-
 	    
 	    // Redirige a listadoCompanias
 	    request.getRequestDispatcher("listadoCompanias.jsp").forward(request, response); 
