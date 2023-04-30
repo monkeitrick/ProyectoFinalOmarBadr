@@ -38,9 +38,9 @@
     </div>
 
     <div class="mt-4 pt-2">
+    	<button class="btn btn-danger btn-lg" type="submit" name="cancelar">Cancelar</button>
         <button class="btn btn-danger btn-lg" type="submit" name="modificar">Modificar</button>
     </div>
-
 </form>
 
  

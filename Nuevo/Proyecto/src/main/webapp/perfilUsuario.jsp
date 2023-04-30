@@ -8,7 +8,7 @@
 <h2>
     <b>${datosUsuario.nombre }, ${datosUsuario.apellidos }</b>
     <c:if test="${datosUsuario.admin }">
-            <small class="text-success">(Es admin)</small>
+            <small class="text-success">(Administrador)</small>
     </c:if>
 </h2>
 <table class="table">
@@ -22,9 +22,9 @@
         <td>${datosUsuario.passw}</td>
         <td>
             <!-- Button trigger modal para cambiar contraseña-->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                Cambiar contraseña
-            </button>
+            <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  				Cambiar contraseña
+			</button>
         </td>
     </tr>
 </table>
@@ -35,38 +35,36 @@
 </c:if>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cambia la contraseña</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form action="ServletPerfilUsuario" method="post">
-            <div class="modal-body">
-                <input type="hidden" id="email" name="email" value="${datosUsuario.email}"/>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <label class="form-label" for="pass1">Contraseña *</label>
-                            <input type="password" id="pass1" name="pass1" class="form-control form-control-lg" required/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <label class="form-label" for="pass2">Repite contraseña *</label>
-                            <input type="password" id="pass2" name="pass2" class="form-control form-control-lg" required/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger btn-lg" name="cambiarPass">Cambiar</button>
-            </div>
-        </form> 
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambiar la contraseña</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="ServletPerfilUsuario" method="post">
+      <div class="modal-body">
+        <input type="hidden" id="email" name="email" value="${datosUsuario.email}"/>
+      	<div class="row">
+      		<div class="col-md-6 mb-4">
+      			<div class="form-outline">
+      				<label class="form-label" for="pass1">Contraseña *</label>
+      				<input type="password" id="pass1" name="pass1" class="form-control form-control-lg" required/>
+   				</div>
+			</div>
+			<div class="col-md-6 mb-4">
+				<div class="form-outline">
+					<label class="form-label" for="pass2">Repite contraseña *</label>
+					<input type="password" id="pass2" name="pass2" class="form-control form-control-lg" required/>
+				</div>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-danger" name="cambiarPass">Cambiar</button>
+      </div>
+      </form>
     </div>
   </div>
 </div>
