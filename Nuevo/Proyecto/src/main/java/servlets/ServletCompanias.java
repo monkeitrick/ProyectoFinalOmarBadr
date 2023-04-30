@@ -54,11 +54,12 @@ public class ServletCompanias extends HttpServlet {
 
 	    // Si desea confirmar la modificacion, la cambia en la BBDD
 	    if(request.getParameter("modificar") != null) {
-	        bdCompania.modificarCompania(request.getParameter("idCompania"), request.getParameter("idImagen"), request.getParameter("ruta"), request.getParameter("nombre"), request.getParameter("enlace"));
+	    	bdCompania.modificarCompania(request.getParameter("idCompania"), request.getParameter("idImagen"), request.getParameter("ruta"), request.getParameter("nombre"), request.getParameter("enlace"));
 	    }
 	    
 	    // Redirige a listadoCompanias
-	    request.getRequestDispatcher("listadoCompanias.jsp").forward(request, response); 
+	    request.getSession().setAttribute("lstCompanias", bdCompania.listarCompanias());
+		doGet(request, response);
 	}
 
 }
