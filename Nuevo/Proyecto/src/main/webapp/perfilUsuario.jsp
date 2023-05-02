@@ -85,7 +85,7 @@
                     <td>${compra.fecha}</td>
                     <td>${compra.total}</td>
                     <td>
-                        <a href="ServletDetallesCompra?id=${compra.idCompra}">Detalles compra</a>
+                        <a class="btn btn-danger" href="ServletDetallesCompra?id=${compra.idCompra}">Detalles compra</a>
                     </td>
                 </tr>
             </c:forEach>

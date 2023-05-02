@@ -5,7 +5,7 @@
 		</div>
 	</div>
 </div> 
-	<footer class="bg-dark text-center text-white w-100 ">
+	<footer class="bg-dark text-center text-white w-100">
 	  <!-- Grid container -->
 	  <div class="container pt-4 pb-0">
 	    <!-- Section: Social media -->
