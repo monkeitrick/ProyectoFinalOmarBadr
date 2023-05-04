@@ -61,4 +61,34 @@
 		<servlet-name>ServletPerfilUsuario</servlet-name>
 		<url-pattern>/ServletPerfilUsuario</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet Productos -->
+	<servlet>
+		<servlet-name>ServletProductos</servlet-name>
+		<servlet-class>servlets.ServletProductos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletProductos</servlet-name>
+		<url-pattern>/ServletProductos</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Detalles Compra -->
+	<servlet>
+		<servlet-name>ServletDetallesCompra</servlet-name>
+		<servlet-class>servlets.ServletDetallesCompra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDetallesCompra</servlet-name>
+		<url-pattern>/ServletDetallesCompra</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Detalles Compra -->
+	<servlet>
+		<servlet-name>ServletAgregarLineaPedidos</servlet-name>
+		<servlet-class>servlets.ServletAgregarLineaPedidos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletAgregarLineaPedidos</servlet-name>
+		<url-pattern>/ServletAgregarLineaPedidos</url-pattern>
+	</servlet-mapping>
 </web-app>

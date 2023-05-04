@@ -2,10 +2,28 @@ package beans;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class VideoJuego {
 
-  private int idJuego;
+  @Override
+public int hashCode() {
+	return Objects.hash(idJuego);
+}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VideoJuego other = (VideoJuego) obj;
+		return idJuego == other.idJuego;
+	}
+
+private int idJuego;
   private String titulo, descripcion, trailer, fecha;
   private double precio;
   private Compania compania;

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.VideoJuego;
 import dao.JuegosDAO;
 
 /**
@@ -46,16 +48,26 @@ public class ServletProductos extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nombre = request.getParameter("nombre");
-		String descripcion = request.getParameter("descripcion");
-		Double precio = Double.parseDouble(request.getParameter("precio"));
-		String categoria = request.getParameter("categoria");
-		if(nombre.equals("") || descripcion.equals("") || categoria.equals("") || precio>0) {
-			request.setAttribute("mensajeError", "Debes de rellenar todas las casillas");
-			request.getRequestDispatcher("aniadirProducto.jsp").forward(request, response);
+		if(request.getSession().getAttribute("lstJuegos")!=null) {
+			String idString=  request.getParameter("borrar");
+			Integer id= Integer.valueOf(idString);
+			VideoJuego v= new VideoJuego();
+			v.setIdJuego(id);
+			ArrayList<VideoJuego> arr=(ArrayList<VideoJuego>) request.getSession().getAttribute("lstJuegos");
+			arr.remove(v);
+			request.getSession().setAttribute("lstJuegos", arr);
+			request.getRequestDispatcher("listadoProductos.jsp").forward(request, response);
 		}
+//		String nombre = request.getParameter("nombre");
+//		String descripcion = request.getParameter("descripcion");
+//		Double precio = Double.parseDouble(request.getParameter("precio"));
+//		String categoria = request.getParameter("categoria");
+//		if(nombre.equals("") || descripcion.equals("") || categoria.equals("") || precio>0) {
+//			request.setAttribute("mensajeError", "Debes de rellenar todas las casillas");
+//			request.getRequestDispatcher("aniadirProducto.jsp").forward(request, response);
+//		}
 		
-		request.getRequestDispatcher("listadoProductosAdmin.jsp").forward(request, response);
+//		request.getRequestDispatcher("listadoProductosAdmin.jsp").forward(request, response);
 	}
 
 }
