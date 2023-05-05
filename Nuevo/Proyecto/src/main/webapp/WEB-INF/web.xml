@@ -91,4 +91,14 @@
 		<servlet-name>ServletAgregarLineaPedidos</servlet-name>
 		<url-pattern>/ServletAgregarLineaPedidos</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet Detalles Compra -->
+	<servlet>
+		<servlet-name>ServletPago</servlet-name>
+		<servlet-class>servlets.ServletPago</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletPago</servlet-name>
+		<url-pattern>/ServletPago</url-pattern>
+	</servlet-mapping>
 </web-app>

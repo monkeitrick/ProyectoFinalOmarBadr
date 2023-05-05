@@ -20,45 +20,22 @@ public class ServletFinalizarCompra extends HttpServlet {
     super();
   }
 
-  protected void doGet(
-    HttpServletRequest request,
-    HttpServletResponse response
-  ) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
     doPost(request, response);
   }
 
-  protected void doPost(
-    HttpServletRequest request,
-    HttpServletResponse response
-  ) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
     if (request.getParameter("total") != null) {
       double total = Double.parseDouble(request.getParameter("total"));
       response.sendRedirect("html/finalizarCompra.jsp?total=" + total);
-    } else {
+    } 
+    else {
       Double total = Double.valueOf(request.getParameter("compraTotal"));
       if (request.getParameter("pagar") != null) {
-        //				if(request.getParameter("cardNumber") == null){
-        //					response.sendRedirect("html/finalizarCompra.jsp?camposVacios=1&total"+total);
-        //				}
-        //				else if(request.getParameter("cardName") == null){
-        //					response.sendRedirect("html/finalizarCompra.jsp?camposVacios=1&total"+total);
-        //				}
-        //				else if(request.getParameter("cardCvv") == null){
-        //					response.sendRedirect("html/finalizarCompra.jsp?camposVacios=1&total"+total);
-        //				}
-        //				else if(request.getParameter("cardYear") == null){
-        //					response.sendRedirect("html/finalizarCompra.jsp?camposVacios=1&total"+total);
-        //				}
-        //				else if(request.getParameter("cardMonth") == null){
-        //					response.sendRedirect("html/finalizarCompra.jsp?camposVacios=1&total"+total);
-        //				}
-        //				else {
         FinalizarCompraDAO fc = new FinalizarCompraDAO();
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         fc.CrearCompra(u.getIdUser(), total);
-        HashMap<Integer, LineaPedido> carrito = (HashMap<Integer, LineaPedido>) request
-          .getSession()
-          .getAttribute("carrito");
+        HashMap<Integer, LineaPedido> carrito = (HashMap<Integer, LineaPedido>) request.getSession().getAttribute("carrito");
         Iterator<Integer> it = carrito.keySet().iterator();
         while (it.hasNext()) {
           Integer idJuego = it.next();

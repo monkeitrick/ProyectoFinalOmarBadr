@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 10, 2023 at 11:32 AM
+-- Generation Time: May 05, 2023 at 06:56 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `compra` (
   `id_usuario` int(11) NOT NULL,
   PRIMARY KEY (`idCompra`),
   KEY `FK_Us_Compra` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `compra`
@@ -82,7 +82,10 @@ INSERT INTO `compra` (`idCompra`, `fecha`, `total`, `id_usuario`) VALUES
 (1, '2023-02-10', 200, 3),
 (2, '2023-02-10', 200, 3),
 (3, '2023-02-10', 600, 3),
-(4, '2023-02-14', 180, 3);
+(4, '2023-02-14', 180, 3),
+(5, '2023-05-05', 1131, 7),
+(6, '2023-05-05', 1131, 7),
+(7, '2023-05-05', 320, 7);
 
 -- --------------------------------------------------------
 
@@ -307,106 +310,6 @@ INSERT INTO `imagen` (`idImagen`, `ruta`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lineapedido`
---
-
-DROP TABLE IF EXISTS `lineapedido`;
-CREATE TABLE IF NOT EXISTS `lineapedido` (
-  `idLineaPedido` int(11) NOT NULL AUTO_INCREMENT,
-  `cantidad` int(11) NOT NULL,
-  `id_juego` int(11) NOT NULL,
-  `id_compra` int(11) NOT NULL,
-  PRIMARY KEY (`idLineaPedido`),
-  KEY `FK_LinPed_Vidjue` (`id_juego`),
-  KEY `FK_LinPed_Compra` (`id_compra`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `lineapedido`
---
-
-INSERT INTO `lineapedido` (`idLineaPedido`, `cantidad`, `id_juego`, `id_compra`) VALUES
-(11, 1, 1, 1),
-(12, 6, 9, 1),
-(13, 6, 9, 2),
-(14, 1, 10, 2),
-(15, 6, 9, 3),
-(16, 6, 10, 3),
-(17, 2, 1, 4),
-(18, 1, 7, 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `personaje`
---
-
-DROP TABLE IF EXISTS `personaje`;
-CREATE TABLE IF NOT EXISTS `personaje` (
-  `idPersonaje` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_juego` int(11) NOT NULL,
-  `id_imagen` int(11) DEFAULT '5',
-  PRIMARY KEY (`idPersonaje`),
-  KEY `FK_Per_Vidjue` (`id_juego`),
-  KEY `FK_Img_Per` (`id_imagen`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `personaje`
---
-
-INSERT INTO `personaje` (`idPersonaje`, `nombre`, `id_juego`, `id_imagen`) VALUES
-(1, 'Joel Miller', 1, 128),
-(2, 'Ellie Williams', 1, 129),
-(3, 'Marlene', 1, 130),
-(4, 'Bill', 1, 131),
-(5, 'Joel Miller', 2, 123),
-(6, 'Ellie Williams', 2, 124),
-(7, 'Dina', 2, 125),
-(8, 'Abby Anderson', 2, 126),
-(9, 'Tommy Miller', 2, 127),
-(10, 'Fuerza Terrorista', 3, 121),
-(11, 'Fuerza Antiterrorista', 3, 122),
-(12, 'Nathan Drake', 4, 118),
-(13, 'Victor Sullivan', 4, 119),
-(14, 'Elena Fisher', 4, 120),
-(15, 'Nathan Drake', 5, 114),
-(16, 'Victor Sullivan', 5, 115),
-(17, 'Elena Fisher', 5, 116),
-(18, 'Chloe Frazer', 5, 117),
-(19, 'Nathan Drake', 6, 109),
-(20, 'Victor Sullivan', 6, 110),
-(21, 'Elena Fisher', 6, 111),
-(22, 'Chloe Frazer', 6, 112),
-(23, 'Charlie Cutter', 6, 113),
-(24, 'Nathan Drake', 7, 105),
-(25, 'Samuel Drake', 7, 106),
-(26, 'Victor Sullivan', 7, 107),
-(27, 'Elena Fisher', 7, 108),
-(28, 'Chloe Frazer', 8, 103),
-(29, 'Samuel Drake', 8, 104),
-(30, 'Kratos', 9, 91),
-(31, 'Atreus', 9, 90),
-(32, 'Mimir', 9, 92),
-(33, 'Freya', 9, 132),
-(34, 'Baldur', 9, 93),
-(35, 'Kratos', 10, 94),
-(36, 'Atreus', 10, 95),
-(37, 'Mimir', 10, 96),
-(38, 'Freya', 10, 97),
-(39, 'Odin', 10, 98),
-(40, 'Tyr', 10, 90),
-(41, 'Thor', 10, 100),
-(42, 'Brok', 10, 101),
-(43, 'Sindri', 10, 102),
-(44, 'Arthur Morgan', 12, 140),
-(45, 'Dutch van der Linde', 12, 141),
-(46, 'John Marston', 12, 142);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `plataforma`
 --
 
@@ -444,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `usuario`
@@ -454,14 +357,11 @@ INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `email`, `password`, 
 (1, 'Omar', 'Eiyana', 'omaradm@omar.com', 'omar', 1),
 (2, 'Badr', 'Jebari', 'badradm@badr.com', 'badr', 1),
 (3, 'Admin', 'Admin', 'admin@admin.com', 'admin', 1),
-(6, 'Pedro', 'García', 'pedro@gmail.com', 'pedro', 0),
 (7, 'Jesus', 'Gabarre', 'jesus@gmail.com', 'jesus', 0),
 (8, 'Yeray', 'Oro', 'yeray@gmail.com', 'yeray', 0),
 (9, 'Iker', 'Murgia', 'iker@gmail.com', 'iker', 0),
 (10, 'Teo', 'Stefanescu', 'teo@gmail.com', 'teo', 0),
-(11, 'Ander', 'Arocena', 'ander@gmail.com', 'ander', 0),
-(12, 'Juan', 'López', 'juan@gmail.com', 'juan', 0),
-(13, 'Luis', 'Henrique', 'luis@gmail.com', 'luis', 0);
+(12, 'Juan', 'López', 'juan@gmail.com', 'juan', 0);
 
 -- --------------------------------------------------------
 
@@ -567,20 +467,6 @@ ALTER TABLE `compra`
 ALTER TABLE `gen_jue`
   ADD CONSTRAINT `FK_GEN_GEN_JUE` FOREIGN KEY (`id_gen`) REFERENCES `genero` (`idGenero`),
   ADD CONSTRAINT `FK_JUE_GEN_JUE` FOREIGN KEY (`id_juego`) REFERENCES `videojuegos` (`idJuego`);
-
---
--- Constraints for table `lineapedido`
---
-ALTER TABLE `lineapedido`
-  ADD CONSTRAINT `FK_LinPed_Compra` FOREIGN KEY (`id_compra`) REFERENCES `compra` (`idCompra`),
-  ADD CONSTRAINT `FK_LinPed_Vidjue` FOREIGN KEY (`id_juego`) REFERENCES `videojuegos` (`idJuego`);
-
---
--- Constraints for table `personaje`
---
-ALTER TABLE `personaje`
-  ADD CONSTRAINT `FK_Img_Per` FOREIGN KEY (`id_imagen`) REFERENCES `imagen` (`idImagen`),
-  ADD CONSTRAINT `FK_Per_Vidjue` FOREIGN KEY (`id_juego`) REFERENCES `videojuegos` (`idJuego`);
 
 --
 -- Constraints for table `videojuegos`

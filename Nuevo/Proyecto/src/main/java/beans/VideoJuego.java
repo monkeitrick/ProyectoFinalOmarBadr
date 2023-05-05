@@ -26,7 +26,16 @@ public int hashCode() {
 private int idJuego;
   private String titulo, descripcion, trailer, fecha;
   private double precio;
-  private Compania compania;
+  private int cantidad;
+  public int getCantidad() {
+	return cantidad;
+}
+
+public void setCantidad(int cantidad) {
+	this.cantidad = cantidad;
+}
+
+private Compania compania;
   private Imagen imgCover, imgCoverMobile, imgBanner;
   private ArrayList<Plataforma> plataformas;
   private ArrayList<Genero> generos;

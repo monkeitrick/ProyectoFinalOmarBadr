@@ -47,14 +47,12 @@
 					<tr>
 				   		<th>Nombre</th>
 				   		<th>Precio</th>
-				   		<th>Cantidad</th>
 				   		<th>Añadir</th>
 				   	</tr>
 					<c:forEach items="${lstJuegos}" var="videoJuego">
 						<tr>
 							<td><c:out value='${videoJuego.titulo}'/></td>
 							<td><c:out value='${videoJuego.precio}'/> $</td>
-							<td><input type="number" name="${videoJuego.idJuego}"></td>
 							<td>
 					        	<button type="submit" class="btn btn-danger" name="borrar" value="${videoJuego.idJuego}">Borrar</button>
 							</td>

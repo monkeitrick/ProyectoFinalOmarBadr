@@ -71,23 +71,6 @@ public class FinalizarCompraDAO {
     }
   }
 
-  // Metodo que crea una LineaPedido pasandole una cantidad y el id del VideoJuego
-  public void CrearLineaPedido(int cantidad, int id_juego) {
-    int idCompra = IdMasGrande();
-    String sql =
-      "INSERT INTO lineapedido (cantidad, id_juego, id_compra ) VALUES ( ?, ?, ? );";
-    try {
-      con = ds.getConnection();
-      PreparedStatement ps = con.prepareStatement(sql);
-      ps.setInt(1, cantidad);
-      ps.setInt(2, id_juego);
-      ps.setInt(3, idCompra);
-      ps.executeUpdate();
+  
 
-      ps.close();
-      con.close();
-    } catch (SQLException e1) {
-      e1.printStackTrace();
-    }
-  }
 }

@@ -62,14 +62,25 @@ public class ServletAgregarLineaPedidos extends HttpServlet {
 			}
 			if(continuar=="si") {
 				if(request.getSession().getAttribute("carro") == null) {
-					HashMap<VideoJuego, Integer> hmJuego=new  HashMap<VideoJuego, Integer>();
-					hmJuego.put(vReal, cantidad);
-					request.getSession().setAttribute("carro", hmJuego);
+					ArrayList<VideoJuego> arrJuegos=new  ArrayList<VideoJuego>();
+					vReal.setCantidad(cantidad);
+					arrJuegos.add(vReal);
+					request.getSession().setAttribute("carro", arrJuegos);
 				}
 				else {
-					HashMap<VideoJuego, Integer> hmJuego=(HashMap<VideoJuego, Integer>) request.getSession().getAttribute("carro");
-					hmJuego.put(vReal, cantidad);
-					request.getSession().setAttribute("carro", hmJuego);
+					ArrayList<VideoJuego> arrJuegos= (ArrayList<VideoJuego>) request.getSession().getAttribute("carro");
+					if(arrJuegos.contains(vReal)) {
+						int index=arrJuegos.indexOf(vReal);
+						cantidad=arrJuegos.get(index).getCantidad()+cantidad;
+						arrJuegos.remove(index);
+						vReal.setCantidad(cantidad);
+						arrJuegos.add(vReal);
+					}
+					else {
+						vReal.setCantidad(cantidad);
+						arrJuegos.add(vReal);
+					}
+					request.getSession().setAttribute("carro", arrJuegos);
 				}
 			}
 			response.sendRedirect("listadoProductos.jsp");
@@ -84,6 +95,16 @@ public class ServletAgregarLineaPedidos extends HttpServlet {
 				VideoJuego vReal=arr.get(i);
 				request.getSession().setAttribute("juego", vReal);
 				response.sendRedirect("detallesProducto.jsp");
+			}else {
+				if(request.getParameter("verCesta")!=null) {
+					if(request.getSession().getAttribute("carro") == null) {
+						request.getSession().setAttribute("mensajeError", "No hay ningun producto en la cesta");
+						response.sendRedirect("listadoProductos.jsp");
+					}
+					else {
+						response.sendRedirect("carro.jsp");
+					}
+				}
 			}
 		}
 			

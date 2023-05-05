@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Aniadimos la cabecera -->
@@ -77,16 +77,12 @@
             <th>ID Compra</th>
             <th>Fecha</th>
             <th>Total</th>
-            <th>Ver detalles</th>
         </tr>
             <c:forEach items="${comprasUsuario}" var="compra">
                 <tr>
                     <td>${compra.idCompra}</td>
                     <td>${compra.fecha}</td>
-                    <td>${compra.total}</td>
-                    <td>
-                        <a class="btn btn-danger" href="ServletDetallesCompra?id=${compra.idCompra}">Detalles compra</a>
-                    </td>
+                    <td>${compra.total} $</td>
                 </tr>
             </c:forEach>
     </table>
