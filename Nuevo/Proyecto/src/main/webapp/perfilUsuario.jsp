@@ -71,6 +71,7 @@
 
 <!-- Listar compras del usuario en caso de que tenga -->
 <c:if test="${comprasUsuario != null && comprasUsuario.size() > 0}">
+<h3>Historial compras</h3>
     <!-- Listado de compras -->
     <table class="table">
         <tr>
