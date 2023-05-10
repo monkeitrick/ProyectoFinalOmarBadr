@@ -79,13 +79,25 @@ CREATE TABLE IF NOT EXISTS `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `fecha`, `total`, `id_usuario`) VALUES
-(1, '2023-02-10', 200, 3),
-(2, '2023-02-10', 200, 3),
-(3, '2023-02-10', 600, 3),
-(4, '2023-02-14', 180, 3),
+(1, '2023-05-01', 200, 8),
+(2, '2023-05-10', 200, 8),
+(3, '2023-05-11', 600, 8),
+(4, '2023-05-14', 180, 8),
 (5, '2023-05-05', 1131, 7),
-(6, '2023-05-05', 1131, 7),
-(7, '2023-05-05', 320, 7);
+(6, '2023-05-09', 1131, 7),
+(7, '2023-05-10', 200, 7),
+(8, '2023-05-11', 320, 7),
+(9, '2023-05-11', 600, 7),
+(10, '2023-05-05', 320, 9),
+(11, '2023-05-05', 300, 11),
+(12, '2023-05-05', 200, 11),
+(13, '2023-05-05', 270, 11),
+(14, '2023-05-10', 500, 11),
+(15, '2023-05-10', 240, 11),
+(16, '2023-05-12', 80, 11),
+(17, '2023-05-13', 60, 7),
+(18, '2023-05-13', 40, 12),
+(19, '2023-05-14', 30, 12);
 
 -- --------------------------------------------------------
 
@@ -191,11 +203,9 @@ CREATE TABLE IF NOT EXISTS `imagen` (
 --
 
 INSERT INTO `imagen` (`idImagen`, `ruta`) VALUES
-(1, 'assets/img/users/defaultUser.jpg'),
 (2, 'assets/img/juegos/covers/defaultCover.jpg'),
 (3, 'assets/img/juegos/covers/coversMobile/defaultCoverMobile.jpg'),
 (4, 'assets/img/juegos/banners/defaultBanner.jpg'),
-(5, 'assets/img/personajes/defaultPersonaje.jpg'),
 (6, 'assets/img/juegos/covers/coversNormal/eldenRing.webp'),
 (7, 'assets/img/juegos/covers/coversNormal/gow.webp'),
 (8, 'assets/img/juegos/covers/coversNormal/miles.webp'),
@@ -238,49 +248,6 @@ INSERT INTO `imagen` (`idImagen`, `ruta`) VALUES
 (45, 'assets/img/juegos/banners/uncharted4.webp'),
 (46, 'assets/img/juegos/banners/uncharted5.webp'),
 (47, 'assets/img/juegos/banners/csgo.webp'),
-(90, 'assets/img/personajes/gow/atreus.webp'),
-(91, 'assets/img/personajes/gow/kratos.webp'),
-(92, 'assets/img/personajes/gow/mimir.webp'),
-(93, 'assets/img/personajes/gow/baldur.webp'),
-(94, 'assets/img/personajes/ragnarok/kratos.webp'),
-(95, 'assets/img/personajes/ragnarok/atreus.webp'),
-(96, 'assets/img/personajes/ragnarok/mimir.webp'),
-(97, 'assets/img/personajes/ragnarok/freya.webp'),
-(98, 'assets/img/personajes/ragnarok/odin.webp'),
-(99, 'assets/img/personajes/ragnarok/tyr.webp'),
-(100, 'assets/img/personajes/ragnarok/thor.webp'),
-(101, 'assets/img/personajes/ragnarok/brok.webp'),
-(102, 'assets/img/personajes/ragnarok/sindri.webp'),
-(103, 'assets/img/personajes/uncharted5/chloe.webp'),
-(104, 'assets/img/personajes/uncharted5/samuel.webp'),
-(105, 'assets/img/personajes/uncharted4/nathan.webp'),
-(106, 'assets/img/personajes/uncharted4/samuel.webp'),
-(107, 'assets/img/personajes/uncharted4/sully.webp'),
-(108, 'assets/img/personajes/uncharted4/elena.webp'),
-(109, 'assets/img/personajes/uncharted3/nathan.webp'),
-(110, 'assets/img/personajes/uncharted3/sully.webp'),
-(111, 'assets/img/personajes/uncharted3/elena.webp'),
-(112, 'assets/img/personajes/uncharted3/chloe.webp'),
-(113, 'assets/img/personajes/uncharted3/charlie.webp'),
-(114, 'assets/img/personajes/uncharted2/nathan.webp'),
-(115, 'assets/img/personajes/uncharted2/sully.webp'),
-(116, 'assets/img/personajes/uncharted2/elena.webp'),
-(117, 'assets/img/personajes/uncharted2/chloe.webp'),
-(118, 'assets/img/personajes/uncharted/nathan.webp'),
-(119, 'assets/img/personajes/uncharted/sully.webp'),
-(120, 'assets/img/personajes/uncharted/elena.webp'),
-(121, 'assets/img/personajes/csgo/terrorista.webp'),
-(122, 'assets/img/personajes/csgo/antiTerrorista.webp'),
-(123, 'assets/img/personajes/tlou2/joel.webp'),
-(124, 'assets/img/personajes/tlou2/ellie.webp'),
-(125, 'assets/img/personajes/tlou2/dina.webp'),
-(126, 'assets/img/personajes/tlou2/abby.webp'),
-(127, 'assets/img/personajes/tlou2/tommy.webp'),
-(128, 'assets/img/personajes/tlou/joel.webp'),
-(129, 'assets/img/personajes/tlou/ellie.webp'),
-(130, 'assets/img/personajes/tlou/marlene.webp'),
-(131, 'assets/img/personajes/tlou/bill.webp'),
-(132, 'assets/img/personajes/gow/freya.webp'),
 (133, 'assets/img/compania/defaultCompania.jpg'),
 (134, 'assets/img/juegos/covers/coversNormal/ForzaHorizont5.webp'),
 (135, 'assets/img/juegos/covers/coversMobile/ForzaHorizont5.webp'),
@@ -288,9 +255,6 @@ INSERT INTO `imagen` (`idImagen`, `ruta`) VALUES
 (137, 'assets/img/juegos/covers/coversNormal/rdr2.webp'),
 (138, 'assets/img/juegos/covers/coversMobile/rdr2.webp'),
 (139, 'assets/img/juegos/banners/rdr2.webp'),
-(140, 'assets/img/personajes/rdr2/arthur.webp'),
-(141, 'assets/img/personajes/rdr2/dutch.webp'),
-(142, 'assets/img/personajes/rdr2//john.webp'),
 (143, 'assets/img/compania/naughtyDog.webp'),
 (144, 'assets/img/compania/rockstarGames.webp'),
 (145, 'assets/img/compania/valve.webp'),
@@ -306,31 +270,6 @@ INSERT INTO `imagen` (`idImagen`, `ruta`) VALUES
 (155, 'assets/img/compania/playgroundGames.webp'),
 (156, 'assets/img/compania/battleStateGames.webp'),
 (157, 'assets/img/compania/kojimaProductions.webp');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `plataforma`
---
-
-DROP TABLE IF EXISTS `plataforma`;
-CREATE TABLE IF NOT EXISTS `plataforma` (
-  `idPlataforma` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `enlaceOficial` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slugIcono` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`idPlataforma`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `plataforma`
---
-
-INSERT INTO `plataforma` (`idPlataforma`, `nombre`, `enlaceOficial`, `slugIcono`) VALUES
-(1, 'Steam', 'https://store.steampowered.com/?l=spanish', 'fa-brands fa-steam'),
-(2, 'Playstation Studios', 'https://www.playstation.com/es-es/', 'fa-brands fa-playstation'),
-(3, 'Xbox Game Studios', 'https://www.xbox.com/es-ES/', 'fa-brands fa-xbox'),
-(4, 'Nintendo', 'https://www.nintendo.es/', 'fa-solid fa-game-console-handheld');
 
 -- --------------------------------------------------------
 
@@ -361,6 +300,7 @@ INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellidos`, `email`, `password`, 
 (8, 'Yeray', 'Oro', 'yeray@gmail.com', 'yeray', 0),
 (9, 'Iker', 'Murgia', 'iker@gmail.com', 'iker', 0),
 (10, 'Teo', 'Stefanescu', 'teo@gmail.com', 'teo', 0),
+(11, 'Pedro', 'Castillo', 'pedro@gmail.com', 'pedro', 0),
 (12, 'Juan', 'López', 'juan@gmail.com', 'juan', 0);
 
 -- --------------------------------------------------------
@@ -406,45 +346,6 @@ INSERT INTO `videojuegos` (`idJuego`, `titulo`, `fecha`, `descripcion`, `trailer
 (11, 'Forza Horizon 5', '2021-11-01', 'Forza Horizon 5 es la nueva entrega de la saga de conducción en mundo abierto de Microsoft. El título, que llegará a Xbox One, Xbox Series X/S y PC, se ambientará en México y contará con un sistema de condiciones meteorológicas que incluirá desde leves tormentas de polvo, hasta tormentas tropicales más fuertes y otro tipo de eventos climáticos grandes y masivos. Además de la nueva información aportada a nivel de jugabilidad, los modos The Eliminator y Super 7 estarán de regreso. Forza Horizon 5 también contará con un conjunto de herramientas que permitirán crear nuestras propias carreras, modos de juego y experiencias.', 'https://www.youtube.com/embed/FYH9n37B7Yw', 80, 14, 134, 135, 136),
 (12, 'Red Dead Redemption 2', '2018-10-26', 'Tras un asalto fallido en el pueblo de Blackwater, Arthur Morgan y la pandilla de Van der Linde se ven forzados a huir. Con agentes federales y los mejores cazarrecompensas pisando sus talones, la pandilla deberá asaltar, robar y hacerse camino a través de una América despiadada para poder sobrevivir.', 'https://www.youtube.com/embed/BkEXJk6ZAf0', 40, 2, 137, 138, 139);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `vid_pla`
---
-
-DROP TABLE IF EXISTS `vid_pla`;
-CREATE TABLE IF NOT EXISTS `vid_pla` (
-  `id_juego` int(11) NOT NULL,
-  `id_plataforma` int(11) NOT NULL,
-  PRIMARY KEY (`id_juego`,`id_plataforma`),
-  KEY `FK_PLA_PLA_JUE` (`id_plataforma`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `vid_pla`
---
-
-INSERT INTO `vid_pla` (`id_juego`, `id_plataforma`) VALUES
-(1, 1),
-(3, 1),
-(7, 1),
-(8, 1),
-(9, 1),
-(11, 1),
-(12, 1),
-(1, 2),
-(2, 2),
-(4, 2),
-(5, 2),
-(6, 2),
-(7, 2),
-(8, 2),
-(9, 2),
-(10, 2),
-(12, 2),
-(11, 3),
-(12, 3);
-
 --
 -- Constraints for dumped tables
 --
@@ -476,14 +377,6 @@ ALTER TABLE `videojuegos`
   ADD CONSTRAINT `FK_Img_Vid` FOREIGN KEY (`id_imgCover`) REFERENCES `imagen` (`idImagen`),
   ADD CONSTRAINT `FK_Img_Vid2` FOREIGN KEY (`id_imgBanner`) REFERENCES `imagen` (`idImagen`),
   ADD CONSTRAINT `FK_Img_Vid3` FOREIGN KEY (`id_imgCoverMobile`) REFERENCES `imagen` (`idImagen`);
-
---
--- Constraints for table `vid_pla`
---
-ALTER TABLE `vid_pla`
-  ADD CONSTRAINT `FK_JUE_PLA_JUE` FOREIGN KEY (`id_juego`) REFERENCES `videojuegos` (`idJuego`),
-  ADD CONSTRAINT `FK_PLA_PLA_JUE` FOREIGN KEY (`id_plataforma`) REFERENCES `plataforma` (`idPlataforma`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
