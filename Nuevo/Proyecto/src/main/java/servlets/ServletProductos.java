@@ -13,14 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import beans.VideoJuego;
 import dao.JuegosDAO;
 
-/**
- * Servlet implementation class servletProductos
- */
 
 public class ServletProductos extends HttpServlet {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JuegosDAO bdJuegos;
     
@@ -30,23 +24,11 @@ public class ServletProductos extends HttpServlet {
        bdJuegos = new JuegosDAO();
    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession().getAttribute("lstJuegos") == null) {
-			request.getSession().setAttribute("lstJuegos", bdJuegos.juegosBBDD());
-		}
-		if (request.getSession().getAttribute("esAdmin") != null) {
-			if(request.getSession().getAttribute("esAdmin").equals("si"))
-		        request.getRequestDispatcher("listadoProductosAdmin.jsp").forward(request, response);
-		} 
-        request.getRequestDispatcher("listadoProductos.jsp").forward(request, response);
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("lstJuegos")!=null) {
 			String idString=  request.getParameter("borrar");
@@ -58,16 +40,15 @@ public class ServletProductos extends HttpServlet {
 			request.getSession().setAttribute("lstJuegos", arr);
 			request.getRequestDispatcher("listadoProductos.jsp").forward(request, response);
 		}
-//		String nombre = request.getParameter("nombre");
-//		String descripcion = request.getParameter("descripcion");
-//		Double precio = Double.parseDouble(request.getParameter("precio"));
-//		String categoria = request.getParameter("categoria");
-//		if(nombre.equals("") || descripcion.equals("") || categoria.equals("") || precio>0) {
-//			request.setAttribute("mensajeError", "Debes de rellenar todas las casillas");
-//			request.getRequestDispatcher("aniadirProducto.jsp").forward(request, response);
-//		}
-		
-//		request.getRequestDispatcher("listadoProductosAdmin.jsp").forward(request, response);
+		if(request.getSession().getAttribute("lstJuegos") == null) {
+			request.getSession().setAttribute("lstJuegos", bdJuegos.juegosBBDD());
+		}
+		if (request.getSession().getAttribute("esAdmin") != null) {
+			if(request.getSession().getAttribute("esAdmin").equals("si")) {
+		        request.getRequestDispatcher("listadoProductos.jsp").forward(request, response);
+			}
+		}
+        response.sendRedirect("listadoProductos.jsp");
 	}
 
 }

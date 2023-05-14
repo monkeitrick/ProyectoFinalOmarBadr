@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
-	<!-- Si no existe el array de productos lo crea-->
+
+	<!-- Si no existe el array de Juegos lo crea-->
 	<c:if test="${lstJuegos == null}">
 		<jsp:forward page="ServletProductos"/>
 	</c:if>
 	
 	<!-- Aniadimos la cabecera -->
 	<c:import url="cabecera.jsp"/>
+
 	<!-- Lista de productos -->
 	<h1>Video Juegos</h1>
 	
