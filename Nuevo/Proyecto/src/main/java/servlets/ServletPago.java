@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.LineaPedido;
 import beans.Usuario;
 import beans.VideoJuego;
 import dao.ClienteDAO;
@@ -36,7 +35,7 @@ public class ServletPago extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("pagar")!=null) {
-			ArrayList<VideoJuego> arrvid= (ArrayList<VideoJuego>) request.getSession().getAttribute("carro");
+			ArrayList<VideoJuego> arrvid = (ArrayList<VideoJuego>) request.getSession().getAttribute("carro");
 			double total=0;
 			for (VideoJuego videoJuego : arrvid) {
 				total+=videoJuego.getPrecio()*videoJuego.getCantidad();
