@@ -1,0 +1,5 @@
+Codigo del proyecto de Omar y Badr
+
+Codigo: https://github.com/monkeitrick/ProyectoFinalOmarBadr/tree/main/Nuevo
+BBDD: https://github.com/monkeitrick/ProyectoFinalOmarBadr/blob/main/tiendajuegos
+Server/Context.xml: https://github.com/monkeitrick/ProyectoFinalOmarBadr/blob/main/Server%20context.txt
